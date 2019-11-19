@@ -1,0 +1,71 @@
+import org.gradle.api.tasks.testing.Test
+
+plugins {
+    id 'java'
+    id 'checkstyle'
+
+}
+
+group 'ooni.automation'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+    compile group: 'org.testng', name: 'testng', version: '6.14.3'
+    compile group: 'io.appium', name: 'java-client', version: '6.0.0'
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.21'
+    testImplementation 'io.cucumber:cucumber-java:4.7.1'
+    compile group: 'io.cucumber', name: 'cucumber-testng', version: '4.7.2'
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '4.7.2'
+    compile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '4.7.2'
+    compile group: 'io.cucumber', name: 'cucumber-core', version: '4.7.2'
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '4.8.0'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+checkstyle {
+    toolVersion "8.21"
+}
+
+test {
+    useTestNG() {
+        dependsOn cleanTest
+        useDefaultListeners = true
+        suites "src/test/resources/suites/regression.xml"
+    }
+}
+
+task androidRegression(type: Test) {
+    doFirst {
+        group = 'verification'
+        useTestNG() {
+            scanForTestClasses = true
+            testLogging.showStandardStreams = true
+            useDefaultListeners = true
+            suites "src/test/resources/suites/regressionandroid.xml"
+        }
+    }
+}
+task iosRegression(type: Test) {
+    doFirst {
+        group = 'verification'
+        useTestNG() {
+            scanForTestClasses = true
+            testLogging.showStandardStreams = true
+            useDefaultListeners = true
+            suites "src/test/resources/suites/regressionios.xml"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+devices:
+  AndroidmobileDevice:
+    capabilities:
+      deviceName: emulator-5554
+      udid: emulator-5554
+      platformName: Android
+      platformVersion: 9.0
+      app: ./app/app-fdroid-debug.apk
+      automationName: UiAutomator2
+      appPackage: org.openobservatory.ooniprobe
+      appActivity: org.openobservatory.ooniprobe.activity.MainActivity
+      noReset: false
+      unicodeKeyboard: false
+      verbose: true
+  IOSmobileDevice:
+    capabilities:
+      platformName: iOS
+      platformVersion: 13.2
+      deviceName: iPhone 11
+      app: org.openobservatory.ooniprobe
+      appActivity: org.openobservatory.ooniprobe.activity.MainActivity
+      useNewWDA: false
+      automationName: XCUITest
