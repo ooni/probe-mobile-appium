@@ -15,8 +15,8 @@ devices:
   IOSmobileDevice:
     capabilities:
       platformName: iOS
-      platformVersion: 13.2
-      deviceName: iPhone 11
+      platformVersion: 12.2
+      deviceName: iPhone Xs Max
       app: org.openobservatory.ooniprobe
       appActivity: org.openobservatory.ooniprobe.activity.MainActivity
       useNewWDA: false
