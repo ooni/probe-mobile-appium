@@ -5,6 +5,7 @@ devices:
       udid: emulator-5554
       platformName: Android
       platformVersion: 9.0
+      app: ./app/app-fdroid-debug.apk
       automationName: UiAutomator2
       appPackage: org.openobservatory.ooniprobe
       appActivity: org.openobservatory.ooniprobe.activity.MainActivity
