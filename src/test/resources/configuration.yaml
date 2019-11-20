@@ -4,7 +4,7 @@ devices:
       deviceName: emulator-5554
       udid: emulator-5554
       platformName: Android
-      platformVersion: 7.0
+      platformVersion: 5.1
       app: ../app/build/outputs/apk/fdroid/debug/app-fdroid-debug.apk
       automationName: UiAutomator2
       appPackage: org.openobservatory.ooniprobe
