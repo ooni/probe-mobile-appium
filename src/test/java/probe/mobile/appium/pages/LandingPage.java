@@ -52,12 +52,20 @@ public class LandingPage extends BasePage {
     }
 
     public boolean goToLandingPage() {
+        waitForElement(whatIsOoniText);
         if (!elementContainsText(whatIsOoniText, "")) return false;
         clickOnElement(gotitButton);
+        waitForElement(headsUpText);
         if (!elementContainsText(headsUpText, "")) return false;
+        waitForElement(iunderstandButton);
         clickOnElement(iunderstandButton);
+        waitForElement(popQuizPositive);
         clickOnElement(popQuizPositive);
+
+        waitForElement(popQuizPositive);
         clickOnElement(popQuizPositive);
+
+        waitForElement(letsGoButton);
         clickOnElement(letsGoButton);
         return true;
     }
