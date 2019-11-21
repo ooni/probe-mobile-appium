@@ -12,6 +12,8 @@ devices:
       noReset: false
       unicodeKeyboard: false
       verbose: true
+      uiautomator2ServerInstallTimeout = 60000
+      uiautomator2ServerLaunchTimeout = 60000
   IOSmobileDevice:
     capabilities:
       platformName: iOS
