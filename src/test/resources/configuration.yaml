@@ -5,7 +5,7 @@ devices:
       udid: emulator-5554
       platformName: Android
       platformVersion: 7.0
-      app: ../app/build/outputs/apk/fdroid/debug/app-fdroid-debug.apk
+      app: /home/travis/app/build/outputs/apk/fdroid/debug/app-fdroid-debug.apk
       automationName: UiAutomator2
       appPackage: org.openobservatory.ooniprobe
       appActivity: org.openobservatory.ooniprobe.activity.MainActivity
