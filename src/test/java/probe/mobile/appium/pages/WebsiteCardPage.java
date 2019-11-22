@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebsiteCardPage extends BasePage {
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Websites\"]")
+    @FindBy(xpath = "//android.widget.Button[@text=\"Choose websites\"]")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Websites\"]")
-    private MobileElement websiteTitle;
+    private MobileElement chooseWebsite;
 
     @FindBy(id = "org.openobservatory.ooniprobe:id/run")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Run\"]")
@@ -33,7 +33,7 @@ public class WebsiteCardPage extends BasePage {
     }
 
     public void startTest() {
-        waitForElement(runTestButton);
+        waitForElement(chooseWebsite);
         clickOnElement(runTestButton);
 
     }
