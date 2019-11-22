@@ -2,30 +2,30 @@ package probe.mobile.appium.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.support.FindBy;
 import probe.mobile.appium.BasePage;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebsiteCardPage extends BasePage {
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Websites\"]")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Websites\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Websites\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Websites\"]")
     private MobileElement websiteTitle;
 
-    @AndroidFindBy(id = "org.openobservatory.ooniprobe:id/run")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Run\"]")
+    @FindBy(id = "org.openobservatory.ooniprobe:id/run")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Run\"]")
     private MobileElement runTestButton;
 
-    @AndroidFindBy(id = "org.openobservatory.ooniprobe:id/Dashboard_Running_EstimatedTimeLeft")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Estimated time left:\"]")
+    @FindBy(id = "org.openobservatory.ooniprobe:id/Dashboard_Running_EstimatedTimeLeft")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Estimated time left:\"]")
     private MobileElement etaTimeLeftText;
 
-    @AndroidFindBy(id = "org.openobservatory.ooniprobe:id/log")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Estimated time left:\"]")
+    @FindBy(id = "org.openobservatory.ooniprobe:id/log")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Estimated time left:\"]")
     private MobileElement log;
 
-    @AndroidFindBy(id = "org.openobservatory.ooniprobe:id/eta")
+    @FindBy(id = "org.openobservatory.ooniprobe:id/eta")
     private MobileElement eta;
 
     public WebsiteCardPage(AppiumDriver<MobileElement> driver, WebDriverWait wait) {
@@ -39,6 +39,8 @@ public class WebsiteCardPage extends BasePage {
     }
 
     public boolean CheckLoaderDecreasing(int timefromTest) {
+        waitForElement(eta);
+        waitForElement(log);
         elements.add(eta);
         elements.add(log);
         visualCheck(elements);
