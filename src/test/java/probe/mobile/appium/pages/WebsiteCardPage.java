@@ -54,7 +54,7 @@ public class WebsiteCardPage extends BasePage {
     private int numberParser() {
         waitForElement(eta);
         String et = getText(eta);
-        while (et.equals("")) {
+        while (et.equals("") || et.contains("120")) {
             et = getText(eta);
         }
         et = et.replaceAll("\\D+", "");
