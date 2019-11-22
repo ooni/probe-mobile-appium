@@ -4,8 +4,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.FindBy;
-import probe.mobile.appium.BasePage;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import probe.mobile.appium.BasePage;
 
 public class WebsiteCardPage extends BasePage {
 
@@ -41,6 +41,7 @@ public class WebsiteCardPage extends BasePage {
     public boolean CheckLoaderDecreasing(int timefromTest) {
         waitForElement(eta);
         waitForElement(log);
+        waitForElement(etaTimeLeftText);
         elements.add(eta);
         elements.add(log);
         visualCheck(elements);
@@ -51,7 +52,11 @@ public class WebsiteCardPage extends BasePage {
 
 
     private int numberParser() {
-        String et = eta.getText();
+        waitForElement(eta);
+        String et = getText(eta);
+        while (et.equals("")) {
+            et = getText(eta);
+        }
         et = et.replaceAll("\\D+", "");
         int result = Integer.parseInt(et);
         System.out.println(result);
